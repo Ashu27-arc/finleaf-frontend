@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ══════════════════════════════════════════
+   DARK THEME  (default)
+══════════════════════════════════════════ */
+:root,
+[data-theme="dark"] {
+  --navy:   #060e1e;
+  --navy2:  #0c1929;
+  --gold:   #c9a227;
+  --gold2:  #e6c65c;
+  --gold3:  #f5d97a;
+  --ink:    #eaf0f8;
+  --mut:    #8a9bb8;
+  --card:   #0e1f35;
+  --line:   rgba(201, 162, 39, 0.2);
+  --ok:     #3ec98e;
+
+  --header-bg:    rgba(6, 14, 30, 0.85);
+  --header-border: rgba(201, 162, 39, 0.12);
+  --stats-bg:     rgba(12, 25, 41, 0.8);
+  --factbox-bg:   rgba(14, 31, 53, 0.8);
+  --analogy-bg:   linear-gradient(135deg, rgba(201,162,39,0.10), rgba(201,162,39,0.03));
+  --trust-card-bg: rgba(255,255,255,0.03);
+  --trust-card-border: rgba(255,255,255,0.06);
+  --include-item-bg: rgba(255,255,255,0.02);
+  --include-item-border: rgba(255,255,255,0.05);
+  --nav-hover-bg: rgba(255,255,255,0.05);
+  --kn-icon-bg: rgba(201,162,39,0.10);
+  --footer-bg: #040c19;
+  --footer-border: rgba(201,162,39,0.10);
+  --footer-divider: rgba(255,255,255,0.05);
+  --slate-dim: #3d4f67;
+
+  --hero-bg: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,162,39,0.22), transparent),
+             linear-gradient(180deg, #0a1525 0%, #060e1e 100%);
+  --page-hero-bg: radial-gradient(ellipse 70% 55% at 50% -5%, rgba(201,162,39,0.18), transparent),
+                  linear-gradient(180deg, #0a1525 0%, #060e1e 100%);
+  --cta-bg: linear-gradient(135deg, #0e1f36, #091525);
+  --why-bg: linear-gradient(135deg, rgba(15,32,56,0.9), rgba(10,22,40,0.95));
+  --orb1: rgba(201,162,39,0.07);
+  --orb2: rgba(62,201,142,0.05);
+
+  --toggle-bg: rgba(255,255,255,0.06);
+  --toggle-border: rgba(255,255,255,0.12);
+  --toggle-color: #e6c65c;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ══════════════════════════════════════════
+   LIGHT THEME
+══════════════════════════════════════════ */
+[data-theme="light"] {
+  --navy:   #f0f4fa;
+  --navy2:  #e2e8f4;
+  --gold:   #a87b10;
+  --gold2:  #b8911e;
+  --gold3:  #c9a227;
+  --ink:    #0d1f3c;
+  --mut:    #4a5d7a;
+  --card:   #ffffff;
+  --line:   rgba(168, 123, 16, 0.22);
+  --ok:     #1a8f58;
+
+  --header-bg:    rgba(240, 244, 250, 0.92);
+  --header-border: rgba(168,123,16,0.18);
+  --stats-bg:     rgba(255,255,255,0.9);
+  --factbox-bg:   rgba(255,255,255,0.97);
+  --analogy-bg:   linear-gradient(135deg, rgba(168,123,16,0.08), rgba(168,123,16,0.03));
+  --trust-card-bg: rgba(0,0,0,0.02);
+  --trust-card-border: rgba(0,0,0,0.07);
+  --include-item-bg: rgba(0,0,0,0.02);
+  --include-item-border: rgba(0,0,0,0.07);
+  --nav-hover-bg: rgba(0,0,0,0.05);
+  --kn-icon-bg: rgba(168,123,16,0.10);
+  --footer-bg: #1a2640;
+  --footer-border: rgba(201,162,39,0.12);
+  --footer-divider: rgba(255,255,255,0.08);
+  --slate-dim: #8a9bb8;
+
+  --hero-bg: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(168,123,16,0.14), transparent),
+             linear-gradient(180deg, #dce6f5 0%, #f0f4fa 100%);
+  --page-hero-bg: radial-gradient(ellipse 70% 55% at 50% -5%, rgba(168,123,16,0.12), transparent),
+                  linear-gradient(180deg, #dce6f5 0%, #f0f4fa 100%);
+  --cta-bg: linear-gradient(135deg, #dce6f5, #e8edf8);
+  --why-bg: linear-gradient(135deg, rgba(226,232,244,0.98), rgba(240,244,250,1));
+  --orb1: rgba(168,123,16,0.08);
+  --orb2: rgba(26,143,88,0.06);
+
+  --toggle-bg: rgba(0,0,0,0.06);
+  --toggle-border: rgba(0,0,0,0.12);
+  --toggle-color: #a87b10;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ══════════════════════════════════════════
+   BASE
+══════════════════════════════════════════ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--navy);
+  color: var(--ink);
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
+
+a { color: inherit; text-decoration: none; }
+#menu.open { display: flex !important; }
